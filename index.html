@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>task-3</title>
+    <link rel="stylesheet" href="css/style.css"/>
+</head>
+<body>
+    <section class="slider">
+        <div class="main">
+            <div class="arrows arrow-left">
+                <div class="arrow " rv-on-click="imagesVM.prewImage"></div>
+            </div>
+            <div class="item">
+                <div class="title-img">
+                    <h2>{imagesVM.currentImage.title}</h2>
+                </div>
+                <img rv-src="imagesVM.currentImage.url" />
+
+            </div>
+
+            <div class="arrows arrow-right">
+                <div class="arrow" rv-on-click="imagesVM.nextImage"></div>
+            </div>
+        </div>
+        <div class="images">
+            <img  rv-each-image = "imagesVM.images" rv-class-border="image.active" rv-on-click="imagesVM.changeMainImage" alt="index" rv-src="image.url">
+
+        </div>
+        <div class="form">
+            <div class="added">
+                <h2>Add image</h2>
+                <input type="text" name="title" placeholder="Title......."/>
+                <input type="text" name="url" placeholder="Url..........."/>
+                <input type="submit" value="Add" class="add" rv-on-click="imagesVM.addImage"/>
+                <input type="submit" value="Remove current" rv-on-click="imagesVM.removeImage" class="remove"/>
+            </div>
+            <div class="vote">
+                <h2>Vote</h2>
+                <input type="text" name="email" placeholder="Email"/>
+                <div class="wrapper-smile">
+                    <input class="smileSlide" type="range" name="rate" onchange="changeSmile(this)" rv-value="imagesVM.currentImage.rate" value="1" min="1" max="5" step="1" />
+                    <div id='slimey'></div>
+                </div>
+                <div class="points">
+                    <div class="point"></div>
+                    <div class="point"></div>
+                    <div class="point"></div>
+                    <div class="point"></div>
+                    <div class="point"></div>
+                </div>
+                <input type="submit" value="submit" class="remove add-vote"/>
+            </div>
+        </div>
+
+
+    </section>
+    <script src="node_modules/rivets/dist/rivets.bundled.min.js"></script>
+    <script src="js/imagesViewModel.js"></script>
+    <script src="js/lib.js"></script>
+    <script src="js/Main.js"></script>
+    <script src="js/app.js"></script>
+    <!--<script src="index.js"></script>-->
+</body>
+</html>
